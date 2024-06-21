@@ -40,7 +40,7 @@ L’IRM fonctionnelle est basée sur la mesure du signal magnétique dépendant 
 Les données utilisées proviennent de la base de données ouverte ABIDE II (Autism Brain Imaging Data Exchange). Cette base de données contient 1114 jeux de données de 19 sites différents. 521 sujets sont atteints de TSA et 593 sont des sujets TD. Cette base de données est directement téléchargeable depuis python grâce à la bibliothèque Nilearn. Les données téléchargées sont des IRM fontionnelles prétraitées par le Preprocessed Connectome Projects (PCP). En raison du temps de calcul des algorithmes, il a été choisi de ne pas conserver l’entiereté des données pour le projet. Les études d’analyse de connectivité ont été réalisées à l’échelle individuelle ou sur un groupe de 100 individus (50 sujets ayant des des TSA et 50 sujets TD) et la classification automatique a été réalisée sur 500 individus (242 sujets ASD et 258 sujets TD). Les données phénotypiques associées aux 500 individus de la classification ont permis de tracer le graphique de la figure 1 et ainsi de valider l’absence de différence importante d’âge entre les deux groupes. 
 
 <p align="center">
-  <img src="img/violin_dxgroup_age.png" alt="Figure 1 : Âge et genre en fonction du diagnostic" width="600">
+  <img src="img/violin_dxgroup_age.png" alt="Figure 1 : Âge et genre en fonction du diagnostic" width="400">
   <br>
   <em>Figure 1 : Âge et genre en fonction du diagnostic</em>
 </p>
@@ -67,8 +67,8 @@ Ces données vont permettre d’analyser les différences de connectivité fonct
 
 #### Approche basée sur la corrélation des voxels avec une graine
 
-Une première démarche basée sur l’article d’Alaerts et al. (2013) a été entreprise afin d’observer les différences de connectivité fonctionnelle entre un individu atteint de TSA et un individu TD. Celle-ci consiste à l’observation des corrélations entre une graine placée dans le sillon temporal supérieur postérieur (appelé pSTS, les coordonnées dans le template MNI étaient indiquées par l’article : [47, -60, 4]) et le reste des voxels du cerveau. Les corrélations sont calculées par rapport aux séries temporelles de chaque zone. Le pSTS a été choisi comme zone où placer la graine car celui-ci est fortement connecté à plusieurs régions du cerveau social et plusieurs études ont préalablement montré qu’il était affecté fonctionnellement dans les cas de TSA.
-Ainsi, les cartes de corrélation ont été calculées sur un sujet atteint de TSA (sujet 278) et un sujet sain (sujet 306), celles-ci sont présentées à la figure 2 et 3. De premières différences sont visibles, mais sont difficiles à interpréter. 
+Une première démarche basée sur l’article d’Alaerts et al. (2013) a été entreprise afin d’observer les différences de connectivité fonctionnelle entre les individus atteints de TSA et les individus TD. Celle-ci consiste à l’observation des corrélations entre une graine placée dans le sillon temporal supérieur postérieur (appelé pSTS, les coordonnées dans le template MNI étaient indiquées par l’article : [47, -60, 4]) et le reste des voxels du cerveau. Les corrélations sont calculées par rapport aux séries temporelles de chaque zone. Le pSTS a été choisi comme zone où placer la graine car celui-ci est fortement connecté à plusieurs régions du cerveau social et plusieurs études ont préalablement montré qu’il était affecté fonctionnellement dans les cas de TSA (Alaerts et al., 2013).
+Ainsi, les cartes de corrélation ont été calculées pour le groupe atteint de TSA et pour le groupe TD, celles-ci sont présentées à la figure 2 et 3. De premières différences sont visibles, mais sont difficiles à interpréter. 
 
 <p align="center">
   <img src="img/seed_corr_asd.png" alt="Figure 2 : Carte de corrélations entre la graine et les autres voxels pour l'individu atteint de TSA" width="600">
@@ -82,9 +82,9 @@ Ainsi, les cartes de corrélation ont été calculées sur un sujet atteint de T
   <em>Figure 3 : Carte de corrélations entre la graine et les autres voxels pour l'individu TD</em>
 </p>
 
-Comme cela est fait dans l’article d’Alaerts et al., la corrélation entre le pSTS et le lobule pariétal inférieur (IPL) peut être analysée plus en détails. L'IPL a pour coordonnées [32, -36, 49] dans le système MNI et est indiqué par la croix noire sur la figure 4. Cette figure montre la superposition des cartes de corrélations entre pSTS et l’ensemble du cerveau pour l’individu ayant des TSA (rouge) et pour l’individu TD (bleu). Un seuil a été placé à 0.6, cela signifie que seules les corrélations supérieures à 0.6 sont affichées. 
+Comme cela est fait dans l’article d’Alaerts et al., la corrélation entre le pSTS et le lobule pariétal inférieur (IPL) peut être analysée plus en détails. Cette analyse est d'abord faite à l'échelle individuelle, comme cela a été fait dans l'article, pour le sujet 278 atteint de TSA et le sujet 306 étant TD. L'IPL a pour coordonnées [32, -36, 49] dans le système MNI et est indiqué par la croix noire sur la figure 4. Cette figure montre la superposition des cartes de corrélations entre pSTS et l’ensemble du cerveau pour l’individu ayant des TSA (rouge) et pour l’individu TD (bleu). Un seuil a été placé à 0.6, cela signifie que seules les corrélations supérieures à 0.6 sont affichées. 
 
-Chez l'individu TD, ne corrélation importante est observable entre le pSTS et l'IPL, mais ce n'est pas le cas chez l’individu affecté par un TSA. D’après les études menées par l’équipe d’Alaerts et al., la sous-connectivité entre ces deux zones chez l'indivu ayant un TSA indique une capacité réduite à identifier les émotions.
+Chez l'individu TD, une corrélation importante est observable entre le pSTS et l'IPL, mais ce n'est pas le cas chez l’individu affecté par un TSA. D’après les études menées par l’équipe d’Alaerts et al., la sous-connectivité entre ces deux zones chez l'indivu ayant un TSA indique une capacité réduite à identifier les émotions.
 
 <p align="center">
   <img src="img/superposition_connec.png" alt="Figure 4 : Superposition des cartes de connectivité de l'individu atteint de TSA et de l'individu TD entre le sillon temporel supérieur postérieur et le lobule pariétal inférieur" width="600">
@@ -92,32 +92,22 @@ Chez l'individu TD, ne corrélation importante est observable entre le pSTS et l
   <em>Figure 4 : Superposition des cartes de connectivité de l'individu atteint de TSA et de l'individu TD entre le sillon temporel supérieur postérieur et le lobule pariétal inférieur</em>
 </p>
 
-Notons qu'afin d'avoir des résultats reproductibles les deux sujets choisis sont les mêmes que ceux étudiés dans l’article d’Alaerts et al. Cependant lorsque l’analyse est réalisée au niveau du groupe (un groupe TSA et un groupe TD), aucune différence de connectivité notable n’est relevée entre le pSTS et l'IPL entre les deux groupes. 
+Notons qu'afin d'avoir des résultats reproductibles les deux sujets choisis sont les mêmes que ceux étudiés dans l’article d’Alaerts et al. Cependant, lorsque l’analyse est réalisée au niveau des groupes (groupe TSA et groupe TD), aucune différence de connectivité notable entre le pSTS et l'IPL n’est relevée entre les deux groupes.
 
 #### Approche basée sur les matrices de corrélation
 
-Une autre approche a consisté à appliquer un atlas aux données. L’atlas permet de diviser le cerveau en plusieurs zone d’intérêts et de réduire le nombre de dimensions spatiales des données. La figure 5 montre l’exemple de l’atlas MSDL. Cet atlas est appliqué aux données, puis la matrice de corrélation entre les séries temporelles des différentes régions est calculée. Les figures 6 et 7 montrent des exemples de matrices de corrélation obtenue sur un groupe de 50 individus ayant un TSA et sur un groupe de 50 individus TD.
-
-![Figure 5 : Atlas MSDL](img/.png)
-![Figure 6 : Matrice de corrélation moyenne pour un groupe de 50 individus atteint d'un TSA](img/mat_corr_asd.png)
-![Figure 7 : Matrice de corrélation moyenne pour un groupe de 50 individus TD](img/mat_corr_td.png)
+Une autre approche a consisté à appliquer un atlas aux données. L’atlas permet de diviser le cerveau en plusieurs zone d’intérêts et de réduire le nombre de dimensions spatiales des données. L'atlas MSDL est appliqué aux données, puis la matrice de corrélation entre les séries temporelles des différentes régions est calculée. Les figures 5 et 6 montrent des exemples de matrices de corrélation obtenue sur un groupe de 50 individus ayant un TSA et sur un groupe de 50 individus TD.
 
 <p align="center">
-  <img src="img/.png" alt="Figure 5 : Atlas MSDL" width="600">
+  <img src="img/mat_corr_asd.png" alt="Figure 6 : Matrice de corrélation moyenne pour un groupe de 50 individus atteint d'un TSA" width="400">
   <br>
-  <em>Figure 5 : Atlas MSDL</em>
+  <em>Figure 5 : Matrice de corrélation moyenne pour un groupe de 50 individus atteint d'un TSA</em>
 </p>
 
 <p align="center">
-  <img src="img/mat_corr_asd.png" alt="Figure 6 : Matrice de corrélation moyenne pour un groupe de 50 individus atteint d'un TSA" width="600">
+  <img src="img/mat_corr_td.png" alt="Figure 7 : Matrice de corrélation moyenne pour un groupe de 50 individus TD" width="400">
   <br>
-  <em>Figure 6 : Matrice de corrélation moyenne pour un groupe de 50 individus atteint d'un TSA</em>
-</p>
-
-<p align="center">
-  <img src="img/mat_corr_td.png" alt="Figure 7 : Matrice de corrélation moyenne pour un groupe de 50 individus TD" width="600">
-  <br>
-  <em>Figure 7 : Matrice de corrélation moyenne pour un groupe de 50 individus TD</em>
+  <em>Figure 6 : Matrice de corrélation moyenne pour un groupe de 50 individus TD</em>
 </p>
 
 Cette approche a montré des différences entre les deux groupes, mais celles-ci sont difficiles à interpréter. Cependant, comme cela a été fait dans l’article de Yang et al., les matrices de corrélation peuvent être calculées pour chacun des individus et servir de données d’entrée pour la classification automatique.
@@ -146,7 +136,9 @@ Plusieurs classifieurs sont ensuite testés. Pour chacun d’entre eux, une vali
 Douze modèles ont été construits (pour chacun des trois atlas, les quatre classifieurs sont testés). Pour comparer ces douze modèles, il est essentiel de définir des métriques pertinentes avec l’étude. L’accuracy, la sensibilité ainsi que la spécificité seront calculées, car elles sont adaptées à l’évaluation d’un outil de diagnostic (Yang et al., 2022). L’accuracy correspond au nombre de prédictions réussies sur l’ensemble des prédictions réalisées, la sensibilité au nombre de vrais positifs sur l’ensemble des individus positifs et la spécificité au nombre de vrais négatifs sur l’ensemble des individus réellement négatifs. Ces métriques sont calculées grâce aux formules suivantes. 
 
 $$ \text{Accuracy} = \frac{TP + TN}{TP + FP + TN + FN} $$
+
 $$ \text{Sensibilité} = \frac{TP}{TP + FN} $$
+
 $$ \text{Spécificité} = \frac{TN}{TN + FP} $$
 
 #### Sélection du modèle 
@@ -156,7 +148,7 @@ Le tableau 1 regroupe les résultats d’accuracy, de sensibilité et de spécif
 Le modèle utilisant le classifieur kSVM avec l’atlas Basc197 permet d’avoir un bon compromis entre la sensibilité et la spécificité, et permet d’obtenir la meilleure accuracy parmi les modèles testés. Ce modèle est donc retenu pour la suite de l’étude.
 
 <p align="center">
-  <img src="img/tab_scores.png" alt="Tableau 1 : Métriques de performance (accuracy, sensibilité, spécificité) pour différents classifieurs et différents atlas. Les meilleures performances sont mises en gras dans le tableau." width="600">
+  <img src="img/tab_scores.png" alt="Tableau 1 : Métriques de performance (accuracy, sensibilité, spécificité) pour différents classifieurs et différents atlas. Les meilleures performances sont mises en gras dans le tableau." width="400">
   <br>
   <em>Tableau 1 : Métriques de performance (accuracy, sensibilité, spécificité) pour différents classifieurs et différents atlas. Les meilleures performances sont mises en gras dans le tableau.</em>
 </p>
@@ -165,10 +157,10 @@ Le modèle utilisant le classifieur kSVM avec l’atlas Basc197 permet d’avoir
 
 Le modèle utilisant l’atlas Basc197 et le classifieur kSVM a été sélectionné. Sur la base d’entraînement, il montre des scores de validation croisée élevés : 69.1% d’accuracy, 69.1% de sensibilité et 69.1% de spécificité. 
 
-Afin de tester la robustesse du modèle, celui-ci est testé sur la base de test. La matrice de confusion obtenue est montrée à la figure 8. Le modèle affiche des performances comparables à celles obtenues lors de l’entraînement : l’accuracy est de 68.8%, la sensibilité de 71.9% et la spécificité de 65.6%. Ces résultats démontrent une bonne capacité de généralisation du modèle, même si il serait intéressant de tester le modèle sur plus de données ou sur une autre base de données.
+Afin de tester la robustesse du modèle, celui-ci est testé sur la base de test. La matrice de confusion obtenue est montrée à la figure 7. Le modèle affiche des performances comparables à celles obtenues lors de l’entraînement : l’accuracy est de 68.8%, la sensibilité de 71.9% et la spécificité de 65.6%. Ces résultats démontrent une bonne capacité de généralisation du modèle, même si il serait intéressant de tester le modèle sur plus de données ou sur une autre base de données.
 
 <p align="center">
-  <img src="img/mat_conf_test.png" alt="Figure 8 :Matrice de confusion après classification sur la base de test" width="400">
+  <img src="img/mat_conf_test.png" alt="Figure 7 :Matrice de confusion après classification sur la base de test" width="300">
   <br>
   <em>Figure 8 : Matrice de confusion après classification sur la base de test</em>
 </p>
